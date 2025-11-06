@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Fictrpreneur</title>
+  <style>
+    /* ---------- Base ---------- */
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      background-color: #ffffff;
+      color: #111;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #f0f0f0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      color: #000;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 32px;
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #ffe665;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ---------- Mobile Hamburger ---------- */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      width: 28px;
+      height: 24px;
+    }
+
+    .bar {
+      height: 3px;
+      width: 100%;
+      background: #000;
+      margin: 3px 0;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        border-top: 1px solid #eee;
+        padding: 20px 0;
+      }
+
+      nav a {
+        margin: 12px 0;
+        text-align: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* ---------- Main Layout ---------- */
+    main {
+      max-width: 850px;
+      margin: 80px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      line-height: 1.3;
+      font-weight: 800;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      background-color: #ffe665;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    p {
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+      color: #222;
+    }
+
+    mark {
+      background-color: #b892ff;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    .highlight-section {
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 32px;
+      margin: 60px 0;
+      text-align: center;
+      background: #fff;
+      transition: 0.3s ease;
+    }
+
+    .highlight-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 6px 6px 0 #000;
+    }
+
+    .highlight-section h3 {
+      margin-bottom: 16px;
+      background-color: #ffe665;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #b892ff;
+      color: #000;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .email:hover {
+      background-color: #a274ff;
+    }
+
+    footer {
+      border-top: 1px solid #eaeaea;
+      margin-top: 100px;
+      padding: 40px 60px;
+      font-size: 0.9rem;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 20px;
+      position: relative;
+    }
+
+    footer a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: #ffe665;
+      transition: width 0.3s ease;
+    }
+
+    footer a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      footer div:last-child {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">FICTRPRENEUR</div>
+
+    <div class="menu-toggle" id="mobile-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <nav>
+      <a href="index.html">Our Purpose</a>
+      <a href="FounderNote.html">Founder Note</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+    <p class="subtitle">Let’s build the next generation of founders, together.</p>
+
+    <p>
+      Fictrpreneur isn’t just a platform — it’s a growing <mark>community of builders, dreamers, and doers</mark> who are ready to go from zero to one.  
+      If you believe in creating opportunities, uplifting underdog founders, or building something meaningful, you’re already one of us.
+    </p>
+
+    <h2>Get in Touch</h2>
+    <p>
+      Whether you want to <mark>collaborate, partner, or apply</mark> to join the Fictrpreneur journey — reach out through the channels below.
+    </p>
+
+    <div class="highlight-section">
+      <h3>To Apply & Become a Fictrpreneur</h3>
+      <p>Join the zero-to-one movement and take your first step with us.</p>
+      <a href="mailto:apply@fictrpreneur.com" class="email">apply@fictrpreneur.com</a>
+    </div>
+
+    <div class="highlight-section">
+      <h3>For General Support & Collaborations</h3>
+      <p>For queries, partnerships, and support-related matters — we’re listening.</p>
+      <a href="mailto:support@fictrpreneur.com" class="email">support@fictrpreneur.com</a>
+    </div>
+
+    <p>
+      Every message matters to us — because every message could be the start of something real.  
+      <mark>Let’s make ambition meet opportunity.</mark>
+    </p>
+  </main>
+
+  <footer>
+    <div><strong>Fictrpreneur</strong> — An initiative by FICTR Corp.</div>
+    <div>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById("mobile-menu");
+    const nav = document.querySelector("nav");
+
+    mobileMenu.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
